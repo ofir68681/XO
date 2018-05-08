@@ -3,22 +3,25 @@
 #include <list>
 #include "IllegalCharException.h"
 #include "IllegalCoordinateException.h"
+#include "Pixel.h"
 
 using namespace std;
 
 class Board{
-    private:
+	private:
         
-        char** board;
+        Pixel** board;
        
     public:
         int n;
-        //const
+
+        //Constructor
+        Board();
         Board(int);
         ~Board();
 
-        char& operator[](list<int>);
-        Board& operator=(const char&);
+        Pixel& operator[](list<int>);
+        Board& operator=(char const &);
 
         //Stream
         friend ostream& operator << (ostream &, Board const &);

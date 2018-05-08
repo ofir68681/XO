@@ -10,7 +10,7 @@ int main() {
 	....
 	....
 	....
-	*/
+	 */
 	cout << board1[{1,2}] << endl; // .
 	board1[{1,1}]='X';
 	board1[{1,2}]='O';
@@ -20,7 +20,7 @@ int main() {
 	.XO.
 	....
 	....
-	*/
+	 */
 
 	try {
 		board1[{3,4}]='O';   // This should raise an exception
@@ -30,8 +30,6 @@ int main() {
 
 	board1 = '.';     // Fill the entire board with "."
 	cout << board1 << endl;  /* Shows an empty board, as above */
-	
-
 	try { 
 		board1 = 'a';        // This should raise an exception
 	} catch (const IllegalCharException& ex) {
@@ -46,8 +44,8 @@ int main() {
 
 	Board board2 = board1;
 	board2[{0,0}] = 'X';
-	cout << "board1" << endl<< board1 << endl;  /* Shows an empty board, as above */
-	cout << "board2" << endl << board2 << endl;  /* Shows a board with an X at top-left */
+	cout << board1 << endl;  /* Shows an empty board, as above */
+	cout << board2 << endl;  /* Shows a board with an X at top-left */
 
 	board1 = board2;
 	board1[{3,3}] = 'O';
