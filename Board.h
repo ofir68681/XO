@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
 #include <list>
-using namespace std;
 #include "IllegalCharException.h"
 #include "IllegalCoordinateException.h"
 
+using namespace std;
 
 class Board{
     private:
@@ -17,7 +17,9 @@ class Board{
         Board(int);
         ~Board();
 
-       char& operator[](list<int>);
+        char& operator[](list<int>);
+        Board& operator=(const char&);
+
         //Stream
         friend ostream& operator << (ostream &, Board const &);
         friend istream& operator >> (istream & ,Board &);
