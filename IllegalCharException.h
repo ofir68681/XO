@@ -8,10 +8,6 @@ class IllegalCharException{
     
     public:
 
-    IllegalCharException(const char& c){
-        this->c=c;
-    }
-    char theChar() const{
-        return c;
-    }
+    IllegalCharException(const char& c);
+    char theChar() const;
 };
