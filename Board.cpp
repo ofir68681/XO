@@ -9,6 +9,7 @@ Board::Board(){
 	this->board = nullptr;
 }
 
+
 Board::Board(int n){
 	if(n < 0)
 		throw "wrong input";
@@ -32,9 +33,9 @@ Board::Board(const Board & b){
 //Destructor
 Board::~Board(){
 	for(int i = 0 ; i < n ; i++){
-		delete board[i];
+		delete [] board[i];
 	}
-	delete board;
+	delete [] board;
 }
 
 Pixel& Board::operator[](list<int> lst){
@@ -54,7 +55,6 @@ const Pixel& Board::operator[](list<int> lst) const{
 }
 
 Board& Board:: operator=(char const& c){
-
 	if (c!='.' && c!='X' && c!='O')
 		throw IllegalCharException(c);
 	for(int i=0;i<this->n;++i){
@@ -66,6 +66,7 @@ Board& Board:: operator=(char const& c){
 }
 
 Board Board::operator=(Board const & b){
+	this->~Board();
     n = b.n;
     board = new Pixel*[b.n];
     for(int i = 0; i < b.n; i++){
@@ -82,7 +83,6 @@ bool operator==(Board const & x,Board const & y){
 		return false;
 
 	bool f= true;
-
     for(int i = 0; i < x.n; i++){
         for(int j = 0 ; j < x.n ; j++)
             if(x[{i,j}] != y[{i,j}])
