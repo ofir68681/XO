@@ -9,10 +9,10 @@ Board.o: Board.cpp Board.h Pixel.h
 Pixel.o: Pixel.cpp Pixel.h
 	$(CXX) $(CXXFLAGS) --compile Pixel.cpp -o Pixel.o
 
-IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.hpp Board.h
+IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h Board.h
 	$(CXX) $(CXXFLAGS) -c  IllegalCoordinateException.cpp -o IllegalCoordinateException.o
 	
-IllegalCharException.o: IllegalCharException.cpp IllegalCharException.hpp
+IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
 	$(CXX) $(CXXFLAGS) -c  IllegalCharException.cpp -o IllegalCharException.o
 
 clean: 

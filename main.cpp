@@ -54,8 +54,5 @@ int main() {
 	bool f= (board1==board2);
 	cout << f << endl; 
 
-
-	cout << "Good bye!" << endl;
-
 	return 0;
 }
