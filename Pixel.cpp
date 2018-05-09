@@ -32,6 +32,14 @@ bool operator == (Pixel const & p, char const & c){
 	return p.sign == c;
 }
 
+bool operator == (Pixel const & x, Pixel const & y){
+	return x.sign == y.sign;
+}
+
+bool operator != (Pixel const & x, Pixel const & y){
+	return !(x==y);
+}
+
 Pixel::operator char(){
 	return sign;
 }

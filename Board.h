@@ -24,7 +24,8 @@ class Board{
         Pixel& operator[](list<int>);
         const Pixel& operator[](list<int>) const;
         Board& operator=(char const &);
-        Board operator=(Board const & input);
+        Board operator=(Board const &);
+        friend bool operator==(Board const & , Board const &);
 
 
         //Stream

@@ -40,12 +40,9 @@ Board::~Board(){
 Pixel& Board::operator[](list<int> lst){
 	if(lst.size() != 2 || lst.front() > n-1 || lst.back() > n-1 || lst.front() < 0 || lst.back() < 0)
         throw IllegalCoordinateException(lst);
-	if(lst.front()>=0 && lst.front()<this->n && lst.back()>=0 && lst.back()<this->n){
 		int x = lst.front();
 		int y = lst.back();
 		return this->board[x][y];    
-	}
-	throw IllegalCoordinateException (lst);
 }
 
 const Pixel& Board::operator[](list<int> lst) const{
@@ -53,7 +50,7 @@ const Pixel& Board::operator[](list<int> lst) const{
         throw IllegalCoordinateException(lst);
 	int x = lst.front();
 	int y = lst.back();
-		return this->board[x][y];
+	return this->board[x][y];
 }
 
 Board& Board:: operator=(char const& c){
@@ -78,6 +75,21 @@ Board Board::operator=(Board const & b){
             (*this)[{i,j}] = b[{i,j}];
     }
     return *this;
+}
+
+bool operator==(Board const & x,Board const & y){
+
+	if (x.n != y.n)
+		return false;
+
+	bool f= true;
+
+    for(int i = 0; i < x.n; i++){
+        for(int j = 0 ; j < x.n ; j++)
+            if(x[{i,j}] != y[{i,j}])
+				f=false;
+    }
+    return f;
 }
 
 ostream& operator << (ostream & os, Board const & b){

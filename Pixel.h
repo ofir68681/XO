@@ -21,6 +21,8 @@ class Pixel{
 
 		//Comparison
 		friend bool operator == (Pixel const &, char const &);
+		friend bool operator == (Pixel const &, Pixel const &);
+		friend bool operator != (Pixel const &, Pixel const &);
 
 		//Stream
 		friend ostream& operator << (ostream &, Pixel const &);
