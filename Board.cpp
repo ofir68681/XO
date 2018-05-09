@@ -80,12 +80,12 @@ Board Board::operator=(Board const & b){
     return *this;
 }
 
-ostream& operator << (ostream& os, Board const & board){
-	for(int i = 0 ; i < board.n ; i++)
-		for(int j = 0 ; j < board.n ; j++){
-			os << board.board[i][j];
-			if(j == board.n - 1 and i != board.n-1)
-				os << endl;
-		} 
-	return os;
+ostream& operator << (ostream & os, Board const & b){
+    for(int i = 0 ; i < b.n ; i++){
+        for(int j = 0 ; j < b.n ; j++){
+            os << b.board[i][j];
+        }
+        os << endl;
+    }
+    return os;
 }
