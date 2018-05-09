@@ -66,7 +66,6 @@ Board& Board:: operator=(char const& c){
 }
 
 Board Board::operator=(Board const & b){
-    this->~Board();
     n = b.n;
     board = new Pixel*[b.n];
     for(int i = 0; i < b.n; i++){
