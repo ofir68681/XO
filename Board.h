@@ -18,10 +18,14 @@ class Board{
         //Constructor
         Board();
         Board(int);
+        Board(const Board & b);
         ~Board();
 
         Pixel& operator[](list<int>);
+        const Pixel& operator[](list<int>) const;
         Board& operator=(char const &);
+        Board operator=(Board const & input);
+
 
         //Stream
         friend ostream& operator << (ostream &, Board const &);
