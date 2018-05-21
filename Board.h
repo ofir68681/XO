@@ -3,14 +3,14 @@
 #include <list>
 #include "IllegalCharException.h"
 #include "IllegalCoordinateException.h"
-#include "Pixel.h"
+#include "Coordinate.h"
 
 using namespace std;
 
 class Board{
 	private:
         
-        Pixel** board;
+        Coordinate** board;
        
     public:
         int n;
@@ -21,8 +21,8 @@ class Board{
         Board(const Board & b);
         ~Board();
 
-        Pixel& operator[](list<int>);
-        const Pixel& operator[](list<int>) const;
+        Coordinate& operator[](list<int>);
+        const Coordinate& operator[](list<int>) const;
         Board& operator=(char const &);
         Board operator=(Board const &);
         friend bool operator==(Board const & , Board const &);

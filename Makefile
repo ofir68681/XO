@@ -1,13 +1,13 @@
 CXX=clang++-5.0
 CXXFLAGS=-std=c++14
 
-all: Board.o Pixel.o IllegalCoordinateException.o IllegalCharException.o 
+all: Board.o Coordinate.o IllegalCoordinateException.o IllegalCharException.o 
 
-Board.o: Board.cpp Board.h Pixel.h
+Board.o: Board.cpp Board.h Coordinate.h
 	$(CXX) $(CXXFLAGS) --compile Board.cpp -o Board.o
 
-Pixel.o: Pixel.cpp Pixel.h
-	$(CXX) $(CXXFLAGS) --compile Pixel.cpp -o Pixel.o
+Coordinate.o: Coordinate.cpp Coordinate.h
+	$(CXX) $(CXXFLAGS) --compile Coordinate.cpp -o Coordinate.o
 
 IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h Board.h
 	$(CXX) $(CXXFLAGS) -c  IllegalCoordinateException.cpp -o IllegalCoordinateException.o

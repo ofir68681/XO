@@ -14,17 +14,17 @@ Board::Board(int n){
 	if(n < 0)
 		throw "wrong input";
 	this->n = n;
-	board = new Pixel*[n];
+	board = new Coordinate*[n];
 	for(int i = 0; i < n; i++){
-		board[i] = new Pixel[n];
+		board[i] = new Coordinate[n];
 	}
 }
 
 Board::Board(const Board & b){
     n = b.n;
-    board = new Pixel*[b.n];
+    board = new Coordinate*[b.n];
     for(int i = 0; i < b.n; i++){
-        board[i] = new Pixel[n];
+        board[i] = new Coordinate[n];
         for(int j = 0 ; j < b.n ; j++)
             (*this)[{i,j}] = b[{i,j}];
     }
@@ -38,7 +38,7 @@ Board::~Board(){
 	delete [] board;
 }
 
-Pixel& Board::operator[](list<int> lst){
+Coordinate& Board::operator[](list<int> lst){
 	if(lst.size() != 2 || lst.front() > n-1 || lst.back() > n-1 || lst.front() < 0 || lst.back() < 0)
         throw IllegalCoordinateException(lst);
 		int x = lst.front();
@@ -46,7 +46,7 @@ Pixel& Board::operator[](list<int> lst){
 		return this->board[x][y];    
 }
 
-const Pixel& Board::operator[](list<int> lst) const{
+const Coordinate& Board::operator[](list<int> lst) const{
     if(lst.size() != 2 || lst.front() > n-1 || lst.back() > n-1 || lst.front() < 0 || lst.back() < 0)
         throw IllegalCoordinateException(lst);
 	int x = lst.front();
@@ -68,9 +68,9 @@ Board& Board:: operator=(char const& c){
 Board Board::operator=(Board const & b){
 	this->~Board();
     n = b.n;
-    board = new Pixel*[b.n];
+    board = new Coordinate*[b.n];
     for(int i = 0; i < b.n; i++){
-        board[i] = new Pixel[n];
+        board[i] = new Coordinate[n];
         for(int j = 0 ; j < b.n ; j++)
             (*this)[{i,j}] = b[{i,j}];
     }
